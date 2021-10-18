@@ -2,6 +2,7 @@
 
 import numpy as np
 import numpy.testing as npt
+import pytest
 from unittest.mock import patch
 
 def test_daily_mean_zeros():
@@ -53,13 +54,6 @@ def test_daily_min():
     # Need to use Numpy testing functions to compare arrays
     npt.assert_array_equal(np.array([3, 1]), daily_min(test_array))
 '''
-
-def test_daily_min_string():
-    """Test for TypeError when passing strings"""
-    from inflammation.models import daily_min
-
-    with pytest.raises(TypeError):
-        error_expected = daily_min([['Hello', 'there'], ['General', 'Kenobi']])
 
 @pytest.mark.parametrize(
     "test, expected",
